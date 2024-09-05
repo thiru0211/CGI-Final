@@ -25,12 +25,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CheckPayments extends Locators {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1,ele2,ele3,ele4,ele5;
+	static ExtentReports report;
+	static ExtentTest test;
+	static ExtentReports extent = new ExtentReports();
 
 	@BeforeMethod
 	public void setUp() throws IOException{
@@ -42,6 +49,8 @@ public class CheckPayments extends Locators {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36/CGI/auth");
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		extent.attachReporter(spark);
 //		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 //		FileInputStream FIS=new FileInputStream(file);
 //		Properties prop=new Properties();
@@ -150,30 +159,35 @@ public class CheckPayments extends Locators {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-
 		ele1=driver.findElement(By.name(CPCusEdiChkNam));
 		ele1.click();
 		ele1.sendKeys(CPCusEditChkNam);
+		Thread.sleep(1000);
 		driver.findElement(By.name(CPCusEdiChkDate)).sendKeys(CPCusEditChkDate);
+		Thread.sleep(1000);
 		driver.findElement(By.name(CPCusEdiChkAmt)).sendKeys(CPCusEditChkAmt);
+		Thread.sleep(1000);
 		driver.findElement(By.name(CPCusEdiNamAcc)).sendKeys(CPCusEditNamAcc);
+		Thread.sleep(1000);
 		driver.findElement(By.name(CPCusEdiBnkAcc)).sendKeys(CPCusEditBnkAcc);
+		Thread.sleep(1000);
 		driver.findElement(By.name(CPCusEdiBnkAccRout)).sendKeys(CPCusEditBnkAccRout);
-		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div/div/div[2]/form/div/div[2]/div[8]/div[3]/div[2]/div/a/a"))
 		.click();
-		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[1]/input"))
 		.sendKeys("January, 2024");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[1]/input"))
 		.sendKeys(Keys.ENTER);
-		
+		Thread.sleep(1000);		
 		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/button"))
 		.click();
-		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/button"))
 		.click();
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(CPCusEditSavBtn)).click();
 	}
 }

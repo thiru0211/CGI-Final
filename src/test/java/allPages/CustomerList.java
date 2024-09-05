@@ -32,13 +32,20 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CustomerList extends Locators {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1, ele2, ele3, ele4, ele5, ele6, ele7, ele8, ele9, ele;
-
+	static ExtentReports report;
+	static ExtentTest test;
+	static ExtentReports extent = new ExtentReports();
+	
 	@BeforeMethod
 	public void setUp() throws IOException {
 		WebDriverManager.chromedriver().setup();
@@ -49,6 +56,8 @@ public class CustomerList extends Locators {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36/CGI/auth");
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		extent.attachReporter(spark);
 //		File file = new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 //		FileInputStream FIS = new FileInputStream(file);
 //		Properties prop = new Properties();
@@ -1179,7 +1188,9 @@ public class CustomerList extends Locators {
 	@Test(priority = 38, retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC39() throws InterruptedException {
 		CusEditActBtn();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditMntlyPymnBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditMntlyPymnSavBtn)).click();
 		Thread.sleep(2000);
 		ele1 = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div/div/div/button"));
@@ -1356,6 +1367,7 @@ public class CustomerList extends Locators {
 		CusEditActBtn();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditDocStup)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditDocUpldBtn)).click();
 		Thread.sleep(2000);
 		String FilePath = "C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOneeFinal\\Files\\blank.pdf";
@@ -2122,28 +2134,20 @@ public class CustomerList extends Locators {
 	public void TC69() throws InterruptedException {
 		TC68();
 		String ACHSkpPyRson = PropertyFileReader.propertymap.get("ACHSkpPyRson");
-		// Scanner scanner = new Scanner(System.in);
-		// System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
-		// System.out.println("Please enter in the format like Feb/2024 (or) Mar/2024");
-		// String StartMonth= scanner.nextLine();
-		// Get current date
-		Calendar calendar = Calendar.getInstance();
-		// Get month (0-based indexing) and year
-		int month = calendar.get(Calendar.MONTH); // January = 0, December = 11
-		int year = calendar.get(Calendar.YEAR);
-		// Format month name and year
-		SimpleDateFormat monthFormatter = new SimpleDateFormat("MMM"); // Abbreviated month name
-		String formattedMonth = monthFormatter.format(calendar.getTime());
-		// Combine month and year
-		String formattedDate = formattedMonth + "/" + year;
-		driver.findElement(By.name(ACHSndToCusSkpPySrtMnt)).sendKeys(formattedDate);
-		Thread.sleep(3000);
-		// Scanner scanner1 = new Scanner(System.in);
-		// System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
-		// System.out.println("Please enter in the format like Feb/2024 (or) Mar/2024");
-		// String EndMonth= scanner1.nextLine();
-		driver.findElement(By.name(ACHSndToCusSkpPyEndMnt)).sendKeys("Feb/2023");
+		ele1=driver.findElement(By.name(ACHSndToCusSkpPySrtMnt));
+		ele1.click();
+		Thread.sleep(2000);
+		ele2=driver.findElement(By.xpath("/html/body/div[5]/div/div/div/div/div/div/div[2]/table/tbody/tr[4]/td[2]/div"));
+		ele2.click();
+		Thread.sleep(2000);
+		ele3=driver.findElement(By.name(ACHSndToCusSkpPyEndMnt));
+		ele3.click();
+		Thread.sleep(2000);
+		ele4=driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div/div/div/div[2]/table/tbody/tr[4]/td[3]/div"));
+		ele4.click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(ACHSkpPyRsn)).sendKeys(ACHSkpPyRson);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(ACHSkipPymntBtn)).click();
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));

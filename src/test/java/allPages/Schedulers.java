@@ -19,35 +19,43 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Schedulers extends Locators{
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1,ele2,ele3,ele4,ele5;
-
+	static ExtentReports report;
+	static ExtentTest test;
+	static ExtentReports extent = new ExtentReports();
+	
 	@BeforeMethod
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+//		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		//driver.get("http://192.168.1.36:90/#/auth");
 		driver.get("http://192.168.1.36/CGI/auth");
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		extent.attachReporter(spark);
 //		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 //		FileInputStream FIS=new FileInputStream(file);
 //		Properties prop=new Properties();
 //		prop.load(FIS);	
 	}
 
-	@AfterMethod
-	public void tearDown() throws IOException, InterruptedException {
-		Thread.sleep(3000);
-		driver.quit();
-	}
+//	@AfterMethod
+//	public void tearDown() throws IOException, InterruptedException {
+//		Thread.sleep(3000);
+//		driver.quit();
+//	}
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void ACHSchedulerBtn() throws InterruptedException {

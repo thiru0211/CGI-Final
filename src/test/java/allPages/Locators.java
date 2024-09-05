@@ -576,7 +576,7 @@ public class Locators extends BaseClass{
 	public String OSAddManPymnt="/html/body/div[3]/div[3]/ul/li[2]/div/span";
 	public String OSAddManSavBtn="/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div/div[2]/button";
 	public String OSAddManClsBtn="/html/body/div[4]/div/div[2]/div/div[2]/div/button/span/span";
-	public String OSAddManDueMnt="Duemonth";
+	public String OSAddManDueMnt="/html/body/div[3]/div/div[2]/div/div[2]/div/div[2]/form/div[1]/div/div[1]/div[1]/input";
 	public String OSAddManPayBtn="yes";//name
 	public String OSAddManPyNSF="no";//name
 	public String OSAddMonPayAmt="Monthlypay";//name
@@ -838,7 +838,7 @@ public class Locators extends BaseClass{
 	public String TktCusName="//*[@id=\"kt_content_container\"]/div/div[1]/div[6]/div[2]/input";
 	public String TktExpBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div[7]/button";
 	public String TktViewBtn="//*[@id=\"kt_content_container\"]/div/div[3]/div/table/tbody/tr/td[9]/a";
-	public String TktViewBtnActBtn="/html/body/div[1]/div[2]/div[2]/div[2]/div/div/form/div/div[1]/div[2]/div/button";
+	public String TktViewBtnActBtn="/html/body/div[1]/div[2]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[1]/div[4]/div/button";
 	public String TktViewBtnAddCmt="/html/body/div[3]/div[3]/ul/li[1]/div/div/i";
 	public String TktViewBtnAddCmtSave="//*[@id=\"kt_body\"]/div[4]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/button";
 	public String TktViewBtnAddCmtMan="//*[@id=\"kt_body\"]/div[5]/div/div[2]/div/div[2]/div/div/div/div/center/button";

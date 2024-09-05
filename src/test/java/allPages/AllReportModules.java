@@ -1,11 +1,10 @@
 package allPages;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Properties;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -33,7 +32,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class AllReportModules extends Locators {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
-	public static WebElement ele1, ele2, ele3, ele4, ele5;
+	public static WebElement ele, ele1, ele2, ele3, ele4, ele5;
 	static ExtentReports report;
 	static ExtentTest test;
 	static ExtentReports extent = new ExtentReports();
@@ -267,6 +266,7 @@ public class AllReportModules extends Locators {
 		// sel.selectByVisibleText(OSRepBankName);
 		// driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddNtViewBtn)).click();
 	}
 
@@ -296,8 +296,6 @@ public class AllReportModules extends Locators {
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(OSAddRcdPymt)).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
 		Thread.sleep(2000);
@@ -339,7 +337,21 @@ public class AllReportModules extends Locators {
 		String OSAddRcdPyBankName = PropertyFileReader.propertymap.get("OSAddRcdPyBankName");
 		String OSAddRcdPyType = PropertyFileReader.propertymap.get("OSAddRcdPyType");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(OSAddManDueMnt)).sendKeys(OSAddManDueMnth);
+		// Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Format the date to the desired format (MMM/yyyy)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM, yyyy");
+        String formattedMonth = currentDate.format(formatter);
+
+        System.out.println("Current month: " + formattedMonth);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ele);
+		Thread.sleep(2000);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt));
+		ele.sendKeys(formattedMonth);
+		ele.sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 		driver.findElement(By.name(OSAddRcdPyTranDate)).sendKeys(OSAddRcdPyTraDte);
 		driver.findElement(By.name(OSAddRcdPyTranDes)).sendKeys(OSAddRcdPyTraDes);
@@ -357,8 +369,8 @@ public class AllReportModules extends Locators {
 		sel2.selectByIndex(2);
 		Thread.sleep(2000);
 		ele4 = driver.findElement(By.xpath(OSAddRcdPyCLrBtn));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", ele4);
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("arguments[0].scrollIntoView(true);", ele4);
 
 		ele3 = driver.findElement(By.id(OSAddRcdPyTyp));
 		Select sel3 = new Select(ele3);
@@ -371,6 +383,7 @@ public class AllReportModules extends Locators {
 	@Test(priority = 10, retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC10() throws InterruptedException {
 		TC08();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPyClsBtn)).click();
 	}
 
@@ -399,9 +412,10 @@ public class AllReportModules extends Locators {
 		Actions act = new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPymt)).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div/table/tbody/tr/td[11]/span")).click();
+		driver.findElement(By.xpath(OSAddRcdPyClsBtn)).click();
 	}
 	
 	@Test(priority = 11, retryAnalyzer = ReRunFailedTestCase.class)
@@ -414,26 +428,56 @@ public class AllReportModules extends Locators {
 		String OSAddRcdPayMode = PropertyFileReader.propertymap.get("OSAddRcdPayMode");
 		String OSAddRcdPyBankName = PropertyFileReader.propertymap.get("OSAddRcdPyBankName");
 		String OSAddRcdPyType = PropertyFileReader.propertymap.get("OSAddRcdPyType");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div[1]/div/div[1]/div[1]/input")).sendKeys("January, 2024");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div[1]/div/div[1]/div[1]/input")).sendKeys(Keys.ENTER);
+		// Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Format the date to the desired format (MMM/yyyy)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM, yyyy");
+        String formattedMonth = currentDate.format(formatter);
+
+        System.out.println("Current month: " + formattedMonth);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ele);
+		Thread.sleep(2000);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt));
+		ele.sendKeys(formattedMonth);
+		ele.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 		driver.findElement(By.name(OSAddRcdPyTranDate)).sendKeys(OSAddRcdPyTraDte);
 		driver.findElement(By.name(OSAddRcdPyTranDes)).sendKeys(OSAddRcdPyTraDes);
 		driver.findElement(By.name(OSAddRcdPyAmnt)).sendKeys(OSAddRcdPyAmt);
+		Thread.sleep(2000);
 		ele1 = driver.findElement(By.id(OSAddRcdPyMode));
 		Select sel1 = new Select(ele1);
 		sel1.selectByVisibleText(OSAddRcdPayMode);
-
-		// ele2=driver.findElement(By.name(OSAddRcdPyBnkName));
-		// Select sel2=new Select(ele2);
-		// sel2.selectByVisibleText(OSAddRcdPyBankName);
 		Thread.sleep(2000);
+
+		// Bank name is not displayed
+		ele2 = driver.findElement(By.name(OSAddRcdPyBnkName));
+		Select sel2 = new Select(ele2);
+		// sel2.selectByVisibleText(OSAddRcdPyBankName);
+		sel2.selectByIndex(2);
+		Thread.sleep(2000);
+		ele4 = driver.findElement(By.xpath(OSAddRcdPyCLrBtn));
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("arguments[0].scrollIntoView(true);", ele4);
+
 		ele3 = driver.findElement(By.id(OSAddRcdPyTyp));
 		Select sel3 = new Select(ele3);
 		sel3.selectByVisibleText(OSAddRcdPyType);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
+		Thread.sleep(2000);
+		ele4 = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/div[1]/div[2]"));
+		if(ele4.isDisplayed()) {
+			String text = ele4.getText();
+			System.out.println("Alert message displayed like: "+text);
+		}
+		else {
+			System.out.println("No alert message is displayed");
+		}
 	}
 	
 	@Test(priority = 12, retryAnalyzer = ReRunFailedTestCase.class)

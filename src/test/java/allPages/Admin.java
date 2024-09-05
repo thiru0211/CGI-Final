@@ -30,6 +30,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Admin extends Locators {
@@ -37,6 +41,9 @@ public class Admin extends Locators {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele, ele1, ele2, ele3, ele4, ele5, ele6;
+	static ExtentReports report;
+	static ExtentTest test;
+	static ExtentReports extent = new ExtentReports();
 
 	@BeforeMethod
 	public void setUp() throws IOException {
@@ -48,6 +55,8 @@ public class Admin extends Locators {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36/CGI/auth");
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		extent.attachReporter(spark);
 //		File file = new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 //		FileInputStream FIS = new FileInputStream(file);
 //		Properties prop = new Properties();
