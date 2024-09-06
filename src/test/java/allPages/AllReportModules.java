@@ -365,6 +365,7 @@ public class AllReportModules extends Locators {
 		// Bank name is not displayed
 		ele2 = driver.findElement(By.name(OSAddRcdPyBnkName));
 		Select sel2 = new Select(ele2);
+		
 		// sel2.selectByVisibleText(OSAddRcdPyBankName);
 		sel2.selectByIndex(2);
 		Thread.sleep(2000);
@@ -731,7 +732,7 @@ public class AllReportModules extends Locators {
 		ele1 = driver.findElement(By.xpath(InvLogBankDD));
 		Select sel1 = new Select(ele1);
 		sel1.selectByVisibleText(InvLogBnkDD);
-
+		Thread.sleep(2000);
 		ele2 = driver.findElement(By.xpath(InvLogPyType));
 		Select sel2 = new Select(ele2);
 		sel2.selectByVisibleText("Pending");

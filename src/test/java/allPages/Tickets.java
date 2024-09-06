@@ -44,7 +44,6 @@ public class Tickets extends Locators{
 		driver.get("http://192.168.1.36/CGI/auth");
 		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
 		extent.attachReporter(spark);
-		
 //		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 //		FileInputStream FIS=new FileInputStream(file);
 //		Properties prop=new Properties();

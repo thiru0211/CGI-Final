@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-skipped">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\thirumaran\AppData\Local\Temp\testng-eclipse--2065603577\testng-customsuite.xml</span>
+                    <span>C:\Users\thirumaran\AppData\Local\Temp\testng-eclipse-646249383\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,  1 skipped,  1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Retried methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="allPages.AllReportModules" class="method navigator-link" hash-for-method="OSReportBtn">OSReportBtn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +117,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="allPages.ViewUser" class="method navigator-link" hash-for-method="TC08">TC08</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="allPages.AllReportModules" class="method navigator-link" hash-for-method="OSReportBtn">OSReportBtn</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -118,19 +132,82 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-skipped">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">allPages.ViewUser</span>
+              <img src="skipped.png"/>
+              <span class="class-name">allPages.AllReportModules</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC08">
-                  </a> <!-- TC08 -->
-                  <span class="method-name">TC08</span>
-                  <em>
-(change the ele1 mail id)                  </em>
+                  <a name="OSReportBtn">
+                  </a> <!-- OSReportBtn -->
+                  <span class="method-name">OSReportBtn</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=128.0.6613.120)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fedc0dba5c8d39a71f9722134d0c2333, clickElement {id=f.5053AC09BDE833E850D1F84E2B3D9ED8.d.A7C0A970780CE1057C231CA194066B7D.e.1421}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\THIRUM~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53613}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53613/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (fedc0dba5c8d39a71f9722134d0c2333)] -&gt; xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div/span[2]]
+Session ID: fedc0dba5c8d39a71f9722134d0c2333
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at allPages.AllReportModules.OSReportBtn(AllReportModules.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+	at org.testng.TestNG.runSuites(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1101)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">allPages.AllReportModules</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="OSReportBtn">
+                  </a> <!-- OSReportBtn -->
+                  <span class="method-name">OSReportBtn</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +215,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\thirumaran\AppData\Local\Temp\testng-eclipse--2065603577\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\thirumaran\AppData\Local\Temp\testng-eclipse-646249383\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -147,11 +224,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;allPages.ViewUser&quot;&gt;
+      &lt;class name=&quot;allPages.AllReportModules&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;TC08&quot;/&gt;
+          &lt;include name=&quot;OSReportBtn&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- allPages.ViewUser --&gt;
+      &lt;/class&gt; &lt;!-- allPages.AllReportModules --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -191,16 +268,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC08')
-data.setCell(0, 2, 'allPages.ViewUser')
-data.setCell(0, 3, 21032);
+data.setCell(0, 1, 'OSReportBtn')
+data.setCell(0, 2, 'allPages.AllReportModules')
+data.setCell(0, 3, 65809);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'OSReportBtn')
+data.setCell(1, 2, 'allPages.AllReportModules')
+data.setCell(1, 3, 5529);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -215,71 +296,115 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">30 ignored methods</span>
+            <span class="header-content">52 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">allPages.ViewUser</span>
+              <span class="ignored-class-name">allPages.AllReportModules</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">ViewUsersClick</span>
-                <br/>
-                <span class="ignored-method-name">TC14</span>
-                <br/>
-                <span class="ignored-method-name">TC04</span>
+                <span class="ignored-method-name">TC42</span>
                 <br/>
                 <span class="ignored-method-name">TC26</span>
                 <br/>
-                <span class="ignored-method-name">TC12</span>
-                <br/>
-                <span class="ignored-method-name">TC02</span>
-                <br/>
-                <span class="ignored-method-name">TC24</span>
-                <br/>
-                <span class="ignored-method-name">TC18</span>
-                <br/>
-                <span class="ignored-method-name">TC16</span>
-                <br/>
-                <span class="ignored-method-name">TC06</span>
-                <br/>
-                <span class="ignored-method-name">TC28</span>
-                <br/>
-                <span class="ignored-method-name">TC10</span>
+                <span class="ignored-method-name">TC36</span>
                 <br/>
                 <span class="ignored-method-name">TC22</span>
                 <br/>
-                <span class="ignored-method-name">TC30</span>
+                <span class="ignored-method-name">TC32</span>
                 <br/>
-                <span class="ignored-method-name">TC20</span>
+                <span class="ignored-method-name">TC06</span>
                 <br/>
-                <span class="ignored-method-name">TC09</span>
+                <span class="ignored-method-name">TC16</span>
+                <br/>
+                <span class="ignored-method-name">TC02</span>
+                <br/>
+                <span class="ignored-method-name">TC46</span>
+                <br/>
+                <span class="ignored-method-name">InvoiceLog</span>
+                <br/>
+                <span class="ignored-method-name">TC12</span>
+                <br/>
+                <span class="ignored-method-name">TC37</span>
                 <br/>
                 <span class="ignored-method-name">TC03</span>
                 <br/>
-                <span class="ignored-method-name">TC25</span>
+                <span class="ignored-method-name">TC47</span>
                 <br/>
-                <span class="ignored-method-name">TC15</span>
+                <span class="ignored-method-name">TC33</span>
                 <br/>
-                <span class="ignored-method-name">TC01</span>
-                <br/>
-                <span class="ignored-method-name">TC23</span>
-                <br/>
-                <span class="ignored-method-name">TC13</span>
-                <br/>
-                <span class="ignored-method-name">TC07</span>
-                <br/>
-                <span class="ignored-method-name">TC29</span>
-                <br/>
-                <span class="ignored-method-name">TC19</span>
-                <br/>
-                <span class="ignored-method-name">TC05</span>
+                <span class="ignored-method-name">TC43</span>
                 <br/>
                 <span class="ignored-method-name">TC27</span>
                 <br/>
-                <span class="ignored-method-name">TC17</span>
+                <span class="ignored-method-name">TC13</span>
+                <br/>
+                <span class="ignored-method-name">TC23</span>
+                <br/>
+                <span class="ignored-method-name">TC07</span>
+                <br/>
+                <span class="ignored-method-name">TC10a</span>
+                <br/>
+                <span class="ignored-method-name">TC20</span>
+                <br/>
+                <span class="ignored-method-name">TC30</span>
+                <br/>
+                <span class="ignored-method-name">TC04</span>
+                <br/>
+                <span class="ignored-method-name">TC14</span>
+                <br/>
+                <span class="ignored-method-name">TC44</span>
+                <br/>
+                <span class="ignored-method-name">ACHTransactionBtn</span>
+                <br/>
+                <span class="ignored-method-name">TC10</span>
+                <br/>
+                <span class="ignored-method-name">TC28</span>
+                <br/>
+                <span class="ignored-method-name">TC38</span>
+                <br/>
+                <span class="ignored-method-name">TC24</span>
+                <br/>
+                <span class="ignored-method-name">TC34</span>
+                <br/>
+                <span class="ignored-method-name">TC08</span>
+                <br/>
+                <span class="ignored-method-name">CustomerAuditReport</span>
+                <br/>
+                <span class="ignored-method-name">TC18</span>
+                <br/>
+                <span class="ignored-method-name">TC09</span>
+                <br/>
+                <span class="ignored-method-name">TC40</span>
+                <br/>
+                <span class="ignored-method-name">TC31</span>
+                <br/>
+                <span class="ignored-method-name">TC41</span>
+                <br/>
+                <span class="ignored-method-name">TC15</span>
+                <br/>
+                <span class="ignored-method-name">TC25</span>
+                <br/>
+                <span class="ignored-method-name">TC11</span>
                 <br/>
                 <span class="ignored-method-name">TC21</span>
                 <br/>
-                <span class="ignored-method-name">TC11</span>
+                <span class="ignored-method-name">TC39</span>
+                <br/>
+                <span class="ignored-method-name">TC05</span>
+                <br/>
+                <span class="ignored-method-name">ActivityReport</span>
+                <br/>
+                <span class="ignored-method-name">TC35</span>
+                <br/>
+                <span class="ignored-method-name">TC01</span>
+                <br/>
+                <span class="ignored-method-name">TC45</span>
+                <br/>
+                <span class="ignored-method-name">TC19</span>
+                <br/>
+                <span class="ignored-method-name">TC29</span>
+                <br/>
+                <span class="ignored-method-name">TapeReportBtn</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -291,18 +416,30 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">allPages.ViewUser</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">allPages.AllReportModules</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">launch</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">11 ms</span>
+                <span class="method-start">17 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">TC08</span>
-                <span class="method-start">2939 ms</span>
+                <span class="method-name">OSReportBtn</span>
+                <span class="method-start">3829 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">launch</span>
+                <span class="method-start">69641 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">69641 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">OSReportBtn</span>
+                <span class="method-start">71060 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
