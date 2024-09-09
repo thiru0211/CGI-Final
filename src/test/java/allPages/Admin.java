@@ -744,20 +744,20 @@ public class Admin extends Locators {
 		ele.clear();
 		ele1 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[2]/div[2]/textarea"));
 		ele1.sendKeys(text);
-
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div[2]/textarea")));
-		ele4 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div[2]/textarea"));
-		String text1 = ele4.getAttribute("value");
-		ele.clear();
+		ele2 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div[2]/textarea"));
+		String text1 = ele2.getAttribute("value");
+		ele2.clear();
 		ele3 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div[2]/textarea"));
 		ele3.sendKeys(text1);
-
+		Thread.sleep(2000);
 		// Click save button
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div")));
-		ele2 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div"));
-		ele2.click();
+		ele4 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[3]/div[3]/div"));
+		ele4.click();
 	}
 
 	@Test(priority = 36, retryAnalyzer = ReRunFailedTestCase.class)

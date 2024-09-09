@@ -74,7 +74,7 @@ public class AllReportModules extends Locators {
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
 		wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
+				.elementToBeClickable(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(OSReportBtn)).click();
@@ -91,7 +91,7 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ReportsBtn)));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(TapeReprtBtn)).click();
@@ -108,7 +108,7 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ReportsBtn)));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(ACHTransBtn)).click();
@@ -125,7 +125,7 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ReportsBtn)));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(InvoiceLogBtn)).click();
@@ -142,7 +142,7 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ReportsBtn)));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(ActRepBtn)).click();
@@ -159,7 +159,7 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ReportsBtn)));
 		ele1 = driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(CusAudRepBtn)).click();
@@ -295,8 +295,12 @@ public class AllReportModules extends Locators {
 		Actions act = new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPymt)).click();
 		Thread.sleep(2000);
+//		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div/table/tbody/tr/td[11]/span")).click();
+//		Thread.sleep(2000);
+		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
 		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
 		Thread.sleep(2000);
 		ele2 = driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/div/div/div"));
@@ -383,7 +387,31 @@ public class AllReportModules extends Locators {
 
 	@Test(priority = 10, retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC10() throws InterruptedException {
-		TC08();
+		OSReportBtn();
+		String OSReportCusName = PropertyFileReader.propertymap.get("OSReportCusName");
+		String OSRepBankName = PropertyFileReader.propertymap.get("OSRepBankName");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(OSBankName)));
+		Thread.sleep(2000);
+		ele1 = driver.findElement(By.xpath(OSBankName));
+		Select sel = new Select(ele1);
+		sel.selectByVisibleText(OSRepBankName);
+		
+		ele2 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div[4]/div/select"));
+		Select sel1 = new Select(ele2);
+		sel1.selectByIndex(0);
+		Thread.sleep(2000);
+		sel1.selectByIndex(1);
+		// driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(OSEditBtn)).click();
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.xpath(OSAddNtActBtn));
+		Actions act = new Actions(driver);
+		act.click().build().perform();
+		element.click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(OSAddRcdPymt)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddRcdPyClsBtn)).click();
 	}
@@ -487,6 +515,8 @@ public class AllReportModules extends Locators {
 		String OSReportCusName = PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName = PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
+		driver.navigate().refresh();
+		Thread.sleep(2000);
 		ele1 = driver.findElement(By.xpath(OSBankName));
 		Select sel = new Select(ele1);
 		sel.selectByVisibleText(OSRepBankName);
@@ -528,10 +558,41 @@ public class AllReportModules extends Locators {
 
 	@Test(priority = 14, retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC14() throws InterruptedException {
-		TC12();
+		OSReportBtn();
+		String OSReportCusName = PropertyFileReader.propertymap.get("OSReportCusName");
+		String OSRepBankName = PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
-		String OSAddManDueMnth = PropertyFileReader.propertymap.get("OSAddManDueMnth");
-		driver.findElement(By.name(OSAddManDueMnt)).sendKeys(OSAddManDueMnth);
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		ele1 = driver.findElement(By.xpath(OSBankName));
+		Select sel = new Select(ele1);
+		sel.selectByVisibleText(OSRepBankName);
+		// driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(OSEditBtn)).click();
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.xpath(OSAddNtActBtn));
+		Actions act = new Actions(driver);
+		act.click().build().perform();
+		element.click();
+		driver.findElement(By.xpath(OSAddManPymnt)).click();
+		Thread.sleep(2000);
+		// Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Format the date to the desired format (MMM/yyyy)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM, yyyy");
+        String formattedMonth = currentDate.format(formatter);
+
+        System.out.println("Current month: " + formattedMonth);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt1));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ele);
+		Thread.sleep(2000);
+		ele=driver.findElement(By.xpath(OSAddManDueMnt1));
+		ele.sendKeys(formattedMonth);
+		ele.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 	}
 
 	@Test(priority = 15, retryAnalyzer = ReRunFailedTestCase.class)
@@ -558,7 +619,7 @@ public class AllReportModules extends Locators {
 		String OSAddMonPayAmnt = PropertyFileReader.propertymap.get("OSAddMonPayAmnt");
 		String OSAddMonPayResn = PropertyFileReader.propertymap.get("OSAddMonPayResn");
 		String OSAddManSchDat = PropertyFileReader.propertymap.get("OSAddManSchDat");
-		driver.findElement(By.name(OSAddManDueMnt)).sendKeys(OSAddManDueMnth);
+		driver.findElement(By.xpath(OSAddManDueMnt1)).sendKeys(OSAddManDueMnth);
 		driver.findElement(By.name(OSAddManPayBtn)).click();
 		driver.findElement(By.name(OSAddMonPayAmt)).sendKeys(OSAddMonPayAmnt);
 		driver.findElement(By.name(OSAddMonPayRsn)).sendKeys(OSAddMonPayResn);
@@ -572,6 +633,8 @@ public class AllReportModules extends Locators {
 		OSReportBtn();
 		String OSReportCusName = PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName = PropertyFileReader.propertymap.get("OSRepBankName");
+		Thread.sleep(2000);
+		driver.navigate().refresh();
 		Thread.sleep(2000);
 		// ele1=driver.findElement(By.xpath(OSBankName));
 		// Select sel=new Select(ele1);
@@ -641,7 +704,7 @@ public class AllReportModules extends Locators {
 		Select sel = new Select(ele1);
 		sel.selectByVisibleText(ACHTransDD);
 		ele2 = driver.findElement(By.xpath(ACHTransFrmDte));
-		ele2.sendKeys("01-03-2022");
+//		ele2.sendKeys("01-03-2022");
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(ACHTransActBtn));
 		Actions act = new Actions(driver);
@@ -660,7 +723,7 @@ public class AllReportModules extends Locators {
 		Select sel = new Select(ele1);
 		sel.selectByVisibleText(ACHTransDD);
 		ele2 = driver.findElement(By.xpath(ACHTransFrmDte));
-		ele2.sendKeys("01-03-2022");
+//		ele2.sendKeys("01-03-2022");
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(ACHTransActBtn));
 		Actions act = new Actions(driver);
@@ -669,25 +732,6 @@ public class AllReportModules extends Locators {
 		driver.findElement(By.xpath(ACHTransBckBtn)).click();
 	}
 
-	@Test(priority = 24, retryAnalyzer = ReRunFailedTestCase.class)
-	public void TC25() throws InterruptedException {
-		ACHTransactionBtn();
-		Thread.sleep(2000);
-		String ACHTransDD = PropertyFileReader.propertymap.get("ACHTransDD");
-		String ACHTransFrmDate = PropertyFileReader.propertymap.get("ACHTransFrmDate");
-		String ACHTranCusName = PropertyFileReader.propertymap.get("ACHTranCusName");
-		ele1 = driver.findElement(By.xpath(ACHTransInstDD));
-		Select sel = new Select(ele1);
-		sel.selectByVisibleText(ACHTransDD);
-		ele2 = driver.findElement(By.xpath(ACHTransFrmDte));
-		ele2.sendKeys("01-03-2022");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(ACHCusSrch)).sendKeys(ACHTranCusName);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(ACHTransCusEditBtn)).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id(ACHTransCusEditBCkBtn)).click();
-	}
 
 	@Test(priority = 25, retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC26() throws InterruptedException {
@@ -911,15 +955,15 @@ public class AllReportModules extends Locators {
 		String text = ele3.getText();
 		driver.get(text);
 		Thread.sleep(2000);
-		// Action button
-		WebElement element = driver
-				.findElement(By.xpath("//*[@id=\"hello\"]/div[3]/div[2]/div/div[1]/div[2]/div/button"));
-		Actions act = new Actions(driver);
-		act.click().build().perform();
-		element.click();
-		Thread.sleep(2000);
+//		// Action button
+//		WebElement element = driver
+//				.findElement(By.xpath("//*[@id=\"hello\"]/div[3]/div[2]/div/div[1]/div[2]/div/button"));
+//		Actions act = new Actions(driver);
+//		act.click().build().perform();
+//		element.click();
+//		Thread.sleep(2000);
 		// Download button
-		driver.findElement(By.xpath("//*[@id=\"simple-menu\"]/div[3]/ul/li[3]/div/div")).click();
+		driver.findElement(By.xpath("/html/body/div/div[3]/div/div[1]/div[1]/div[1]/div/button")).click();
 	}
 
 	@Test(priority = 36, retryAnalyzer = ReRunFailedTestCase.class)
@@ -1004,6 +1048,7 @@ public class AllReportModules extends Locators {
 		Actions act = new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogCusEdtActBckBtn)).click();
 	}
 

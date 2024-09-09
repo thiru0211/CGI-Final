@@ -1394,6 +1394,7 @@ public class CustomerList extends Locators {
 		Actions act = new Actions(driver);
 		act.click().build().perform();
 		ele1.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditDocBckBtn)).click();
 	}
 

@@ -70,9 +70,11 @@ public class CustomerACHUpload extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
+		Thread.sleep(2000);
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(CustomerBtn)));
 		driver.findElement(By.xpath(CustomerBtn)).click();
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ACHUploadBtn)));
 		driver.findElement(By.xpath(ACHUploadBtn)).click();
 	}
@@ -122,18 +124,21 @@ public class CustomerACHUpload extends Locators {
 	@Test(priority = 3,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC03() throws InterruptedException, AWTException {
 		ACHUploadClick();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHUploadDateBtn)).click();
 	}
 
 	@Test(priority = 4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException, AWTException {
 		ACHUploadClick();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHUpldSampFilBtn)).click();
 	}
 
 	@Test(priority = 5,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC05() throws InterruptedException, AWTException {
 		ACHUploadClick();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHFrmStupBtn)).click();
 	}
 
@@ -223,6 +228,7 @@ public class CustomerACHUpload extends Locators {
 	@Test(priority = 9,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC09() throws InterruptedException, AWTException {
 		TC07();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusListExclUpldDateBtn)).click();
 	}
 
@@ -240,6 +246,7 @@ public class CustomerACHUpload extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusLisExclUpldBtn)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(CusListExclUpldFilUpld)));
 		driver.findElement(By.xpath(CusListExclUpldFilUpld)).click();

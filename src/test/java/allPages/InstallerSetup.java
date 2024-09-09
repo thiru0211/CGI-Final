@@ -872,5 +872,4 @@ public class InstallerSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpActBckBtn)).click();
 	}
-
 }

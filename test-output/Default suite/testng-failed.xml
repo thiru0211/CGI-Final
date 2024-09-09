@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="allPages.AllReportModules">
+      <class name="allPages.InstallerSetup">
         <methods>
-          <include name="setUp"/>
-          <include name="OSReportBtn"/>
           <include name="launch"/>
+          <include name="setUp"/>
+          <include name="TC21"/>
         </methods>
-      </class> <!-- allPages.AllReportModules -->
+      </class> <!-- allPages.InstallerSetup -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

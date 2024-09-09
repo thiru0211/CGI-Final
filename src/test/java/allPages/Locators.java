@@ -245,7 +245,7 @@ public class Locators extends BaseClass{
 	public String InvstSaveBtn="//*[@id=\"kt_body\"]/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div/div/div[7]/button[2]";
 	public String InvstBackBtn="//div[text()='Back']";
 	public String InstStatusDD="status"; //name
-	public String InvstEditBtn="//*[@id=\"kt_content_container\"]/div[2]/div/table/tbody/tr/td[9]/span/a/span";
+	public String InvstEditBtn="//a[@class=' fs-6  justify-content-end btn-bg-light btn-active-color-primary btn-md cursor-pointer']";
 	public String InvstCloseBtn="/html/body/div[4]/div/div[2]/div/div[2]/div/button";
 	public String InvstBankSetupBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a";
 	public String InvstNSFSetupBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[3]/a";
@@ -571,12 +571,13 @@ public class Locators extends BaseClass{
 	public String OSAddNtViewClsBtn="/html/body/div[3]/div/div[2]/div/div[2]/button";
 	public String OSAddNtActBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[1]/div[2]/div/button";
 	public String OSAddRcdPymt="/html/body/div[3]/div[3]/ul/li[1]/span[1]";
-	public String OSAddRcdPySubBtn="/html/body/div[3]/div/div[2]/div/div[2]/div/div[2]/form/div[2]/button[2]";
+	public String OSAddRcdPySubBtn="//button[text()='Submit']";
 	public String OSAddRcdPyClsBtn="/html/body/div[3]/div/div[2]/div/div[2]/div/button/span/span";
 	public String OSAddManPymnt="/html/body/div[3]/div[3]/ul/li[2]/div/span";
 	public String OSAddManSavBtn="/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div/div[2]/button";
 	public String OSAddManClsBtn="/html/body/div[4]/div/div[2]/div/div[2]/div/button/span/span";
 	public String OSAddManDueMnt="/html/body/div[3]/div/div[2]/div/div[2]/div/div[2]/form/div[1]/div/div[1]/div[1]/input";
+	public String OSAddManDueMnt1="/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/form/div/div[1]/div/div/div/div[1]/input";
 	public String OSAddManPayBtn="yes";//name
 	public String OSAddManPyNSF="no";//name
 	public String OSAddMonPayAmt="Monthlypay";//name
@@ -620,7 +621,7 @@ public class Locators extends BaseClass{
 	public String InvLogAgrBtn="ContentPlaceHolder1_checkTerms2";//id
 	public String InvLogPayNw="ContentPlaceHolder1_inkbtnpaynow";//id
 	public String InvLogCusEdtActBtn="invback";//id
-	public String InvLogCusEdtActBckBtn="/html/body/div[3]/div[3]/ul/li[3]/div/i";
+	public String InvLogCusEdtActBckBtn="//div[@class='action-menu'][text()='Back']";
 	public String InvLogRsndInv="/html/body/div[3]/div[3]/ul/li[1]/div/div/span";
 	public String InvLogRsndYes="/html/body/div[5]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div/button[2]";//id
 	public String InvLogRsndNo="/html/body/div[5]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div/button[1]";

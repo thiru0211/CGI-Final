@@ -69,9 +69,12 @@ public class CustomerGroup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
+		Thread.sleep(2000);
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(SetupBtn)));
 		driver.findElement(By.xpath(SetupBtn)).click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(CusGrpBtn)));
 		driver.findElement(By.xpath(CusGrpBtn)).click();
 		
 	}

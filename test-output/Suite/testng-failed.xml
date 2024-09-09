@@ -3,41 +3,93 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="allPages.Admin">
-        <methods>
-          <include name="Subscription"/>
-          <include name="TC32"/>
-          <include name="setUp"/>
-          <include name="launch"/>
-          <include name="TC25"/>
-          <include name="Help"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- allPages.Admin -->
       <class name="allPages.CustomerList">
         <methods>
-          <include name="TC44"/>
-          <include name="TC12"/>
+          <include name="TC34"/>
+          <include name="TC23"/>
+          <include name="TC46"/>
           <include name="TC47"/>
+          <include name="TC59"/>
+          <include name="TC38"/>
+          <include name="TC06"/>
           <include name="launch"/>
-          <include name="tearDown"/>
-          <include name="TC62"/>
+          <include name="TC29"/>
+          <include name="TC18"/>
           <include name="setUp"/>
+          <include name="TC66"/>
+          <include name="TC44"/>
+          <include name="tearDown"/>
+          <include name="TC40"/>
           <include name="TC42"/>
-          <include name="TC43"/>
+          <include name="TC54"/>
+          <include name="TC21"/>
         </methods>
       </class> <!-- allPages.CustomerList -->
       <class name="allPages.InvestorSetup">
         <methods>
           <include name="TC29"/>
+          <include name="TC24"/>
           <include name="launch"/>
           <include name="setUp"/>
           <include name="TC32"/>
+          <include name="TC21"/>
           <include name="TC10"/>
           <include name="TC09"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- allPages.InvestorSetup -->
+      <class name="allPages.Tickets">
+        <methods>
+          <include name="TC10"/>
+          <include name="TC11"/>
+          <include name="launch"/>
+          <include name="TicketsClick"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="TC09"/>
+          <include name="TC05"/>
+          <include name="TC06"/>
+          <include name="TC07"/>
+          <include name="TC08"/>
+          <include name="TC12"/>
+          <include name="TC01"/>
+          <include name="TC13"/>
+          <include name="TC02"/>
+          <include name="TC14"/>
+          <include name="TC03"/>
+          <include name="TC15"/>
+          <include name="TC04"/>
+        </methods>
+      </class> <!-- allPages.Tickets -->
+      <class name="allPages.InstallerSetup">
+        <methods>
+          <include name="TC27"/>
+          <include name="TC26"/>
+          <include name="TC15"/>
+          <include name="TC04"/>
+          <include name="TC24"/>
+          <include name="TC29"/>
+          <include name="TC28"/>
+          <include name="launch"/>
+          <include name="setUp"/>
+          <include name="TC30"/>
+          <include name="TC23"/>
+          <include name="TC01"/>
+          <include name="tearDown"/>
+          <include name="TC22"/>
+          <include name="TC21"/>
+          <include name="TC31"/>
+        </methods>
+      </class> <!-- allPages.InstallerSetup -->
+      <class name="allPages.Admin">
+        <methods>
+          <include name="setUp"/>
+          <include name="launch"/>
+          <include name="TC35"/>
+          <include name="AuthorizedNetClick"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- allPages.Admin -->
       <class name="allPages.Login">
         <methods>
           <include name="launch"/>
@@ -49,27 +101,28 @@
       <class name="allPages.AllReportModules">
         <methods>
           <include name="TC36"/>
+          <include name="TC25"/>
           <include name="TC14"/>
-          <include name="TC03"/>
+          <include name="TC42"/>
+          <include name="TC45"/>
           <include name="TC34"/>
           <include name="TC23"/>
-          <include name="TC04"/>
+          <include name="TC12"/>
+          <include name="TC37"/>
+          <include name="TC15"/>
           <include name="TC18"/>
-          <include name="TC07"/>
           <include name="TC24"/>
           <include name="launch"/>
           <include name="TC19"/>
           <include name="TC08"/>
           <include name="TC39"/>
-          <include name="TC06"/>
+          <include name="TC28"/>
           <include name="TC09"/>
           <include name="setUp"/>
           <include name="TC10a"/>
           <include name="tearDown"/>
-          <include name="TC32"/>
           <include name="TC10"/>
-          <include name="TC44"/>
-          <include name="TC33"/>
+          <include name="TC41"/>
           <include name="TC11"/>
         </methods>
       </class> <!-- allPages.AllReportModules -->
@@ -77,40 +130,19 @@
         <methods>
           <include name="CheckPaymentsClick"/>
           <include name="tearDown"/>
-          <include name="TC03"/>
           <include name="setUp"/>
           <include name="launch"/>
           <include name="TC02"/>
           <include name="TC01"/>
-          <include name="TC04"/>
           <include name="TC05"/>
         </methods>
       </class> <!-- allPages.CheckPayments -->
-      <class name="allPages.InstallerSetup">
-        <methods>
-          <include name="TC27"/>
-          <include name="TC26"/>
-          <include name="TC15"/>
-          <include name="TC25"/>
-          <include name="TC14"/>
-          <include name="TC24"/>
-          <include name="TC28"/>
-          <include name="launch"/>
-          <include name="setUp"/>
-          <include name="TC23"/>
-          <include name="tearDown"/>
-          <include name="TC22"/>
-          <include name="TC21"/>
-          <include name="TC31"/>
-        </methods>
-      </class> <!-- allPages.InstallerSetup -->
       <class name="allPages.CustomerGroup">
         <methods>
+          <include name="TC03"/>
           <include name="TC05"/>
-          <include name="TC02"/>
           <include name="TC04"/>
           <include name="launch"/>
-          <include name="TC01"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="CustomerGroupBtnClick"/>
@@ -119,13 +151,21 @@
       <class name="allPages.InvoicePayAndCreate">
         <methods>
           <include name="setUp"/>
-          <include name="TC26"/>
-          <include name="TC29"/>
-          <include name="TC35"/>
-          <include name="TC38"/>
           <include name="launch"/>
           <include name="tearDown"/>
           <include name="TC40"/>
+          <include name="TC36"/>
+          <include name="TC14"/>
+          <include name="TC31"/>
+          <include name="TC20"/>
+          <include name="TC48"/>
+          <include name="TC26"/>
+          <include name="TC29"/>
+          <include name="TC46"/>
+          <include name="TC35"/>
+          <include name="TC38"/>
+          <include name="TC08"/>
+          <include name="TC09"/>
         </methods>
       </class> <!-- allPages.InvoicePayAndCreate -->
       <class name="allPages.CustomerACHUpload">
@@ -151,7 +191,9 @@
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="launch"/>
-          <include name="TC05"/>
+          <include name="TC03"/>
+          <include name="TC02"/>
+          <include name="TC07"/>
         </methods>
       </class> <!-- allPages.Schedulers -->
       <class name="allPages.ViewUser">
@@ -161,12 +203,15 @@
           <include name="TC16"/>
           <include name="TC14"/>
           <include name="TC13"/>
+          <include name="TC12"/>
           <include name="TC19"/>
+          <include name="TC15"/>
           <include name="TC10"/>
           <include name="TC30"/>
           <include name="tearDown"/>
           <include name="TC11"/>
           <include name="TC29"/>
+          <include name="TC07"/>
           <include name="TC28"/>
           <include name="TC06"/>
           <include name="TC27"/>
@@ -181,6 +226,7 @@
           <include name="setUp"/>
           <include name="TC26"/>
           <include name="TC04"/>
+          <include name="TC09"/>
           <include name="TC21"/>
           <include name="TC20"/>
           <include name="TC22"/>
